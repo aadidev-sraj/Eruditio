@@ -1,0 +1,142 @@
+/* Basic Navbar Styling */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;  /* Increased padding for better height */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Joyride', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;  /* Ensure it spans full width */
+    max-width: 1200px;  /* Optional max-width if you want */
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+/* Navbar links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.program-dropdown {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    margin-right: 25px;
+    transition: border-color 0.3s;
+}
+
+.program-dropdown:focus {
+    border-color: #1E90FF;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #1E90FF;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    cursor: pointer;  /* Adds pointer cursor */
+    display: block;  /* Ensures button occupies the full width of the container */
+    width: 100%;  /* Full width */
+    text-align: center;  /* Centers text */
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;  /* Hover color */
+}
+
+.btn-ghost {
+    border: 2px solid #1E90FF;
+    color: #1E90FF;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-ghost:hover {
+    background-color: #1E90FF;
+    color: white;
+}
+
+/* Hamburger Menu and Media Queries for Responsiveness */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+}
+
+/* On mobile screens, hide links and show hamburger */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-links a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-links select {
+        margin-bottom: 20px;
+    }
+
+    .navbar-links .btn-primary,
+    .navbar-links .btn-ghost {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+}

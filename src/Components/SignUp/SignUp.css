@@ -1,0 +1,72 @@
+/* src/Components/Signup/Signup.css */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffffff 0%, #1e90ff 100%);
+}
+
+.signup-container {
+  width: 450px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form-container {
+  width: 100%;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 550px;
+}
+
+.signup-title {
+  font-family: 'Joyride', sans-serif;
+  color: #1e90ff;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  color: #333;
+}
+
+.input-group input{
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.input-group select {
+  width: 99%;
+  padding: 10px;
+  margin-top: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-group select {
+  cursor: pointer;
+}
+

@@ -1,0 +1,84 @@
+/* src/Components/Login/Login.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Main font */
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Full screen height minus navbar */
+  background: linear-gradient(#fff,#1e9bff)
+}
+
+.login-form-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px; /* Form width */
+  height: 500px; /* Form height */
+}
+
+.login-title {
+  font-size: 28px;
+  font-family: 'Joyride', sans-serif; /* Joyride font for title */
+  color: #1e90ff; /* Sky Blue */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-group input {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #1e90ff; /* Sky Blue */
+  outline: none;
+}
+
+.forgot-password-link {
+  display: block;
+  text-align: right;
+  font-size: 14px;
+  color: #1e90ff;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+
+.btn-primary:active {
+  background-color: #1e90ff;
+  transform: translateY(1px);
+}
