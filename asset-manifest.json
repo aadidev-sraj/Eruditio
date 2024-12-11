@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Eruditio/static/css/main.a0e4573a.css",
+    "main.js": "/Eruditio/static/js/main.15aa3130.js",
+    "static/js/453.6072bcd2.chunk.js": "/Eruditio/static/js/453.6072bcd2.chunk.js",
+    "static/media/hero-image.jpg": "/Eruditio/static/media/hero-image.f56bb5fedeb48cecc781.jpg",
+    "index.html": "/Eruditio/index.html",
+    "main.a0e4573a.css.map": "/Eruditio/static/css/main.a0e4573a.css.map",
+    "main.15aa3130.js.map": "/Eruditio/static/js/main.15aa3130.js.map",
+    "453.6072bcd2.chunk.js.map": "/Eruditio/static/js/453.6072bcd2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0e4573a.css",
+    "static/js/main.15aa3130.js"
+  ]
+}
