@@ -4,15 +4,17 @@ import Navbar from './Components/Navbar/Navbar';
 import Homepage from './Components/Homepage/Homepage.jsx'; // Ensure path and file name is correct
 import Login from './Components/Login/Login.jsx';         // Ensure path and file name is correct
 import SignUp from './Components/SignUp/Signup.jsx';     // Ensure path and file name is correct
+import { Dashboard } from './Pages/Dashboard/Dashboard.jsx';
 
 const App = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Homepage.css';
-import hero from '../../images/hero-image.jpg'
 
 const HomePage = () => {
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -8,7 +7,7 @@ const HomePage = () => {
     <div className="card" key={index}>
       <h3>Card Title {index + 1}</h3>
       <h4>Card Subtitle {index + 1}</h4>
-      <p>Some content here</p>
+      <p>Some content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus beatae quos nostrum saepe sequi nam debitis natus consequatur vitae quasi accusantium rerum quod sunt id libero eum, pariatur nihil blanditiis.</p>
       <button className="card-button">More</button>
     </div>
   ));
@@ -23,9 +22,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <div className="centered-image">
-        <img src={hero} alt="Eruditio" />
-      </div>
       <section className="description-section">
         <h2>What is Eruditio?</h2>
         <p>Eruditio is a online learning platform that aims at providing knowledge to those who are seeking it. Eruditio intergrates personalised learning with a gamified approach. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sed reiciendis facere expedita voluptates voluptas explicabo, soluta accusantium! Repudiandae, assumenda quibusdam. Laborum, nesciunt tenetur reiciendis inventore fugit qui commodi maxime.</p>

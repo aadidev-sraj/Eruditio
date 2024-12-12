@@ -1,5 +1,5 @@
 {
-  "homepage":"https://aadidev-sraj.github.io/Eruditio",
+  "homepage": "https://aadidev-sraj.github.io/Eruditio",
   "name": "eruditio_1.2",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
@@ -15,8 +16,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy":"nm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -12,10 +12,11 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <div className="logo">Eruditio</div>
+                {/* Wrap the logo in a Link component */}
+                <Link to="/" className="logo">Eruditio</Link>
+                
                 <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
                     <select className="program-dropdown">
-                        <option value="">Program</option>
                         <option value="">Program</option>
                         <option value="agriculture">Agriculture</option>
                         <option value="banking">Banking</option>
@@ -41,6 +42,7 @@ const Navbar = () => {
                     <Link to="/login" className="btn-ghost">Login</Link>
                     <Link to="/signup" className="btn-primary">Sign Up</Link>
                 </div>
+                
                 <div className="navbar-toggle" onClick={toggleMenu}>
                     <span className="bar"></span>
                     <span className="bar"></span>
