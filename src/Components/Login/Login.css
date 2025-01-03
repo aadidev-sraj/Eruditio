@@ -82,3 +82,16 @@ body {
   background-color: #1e90ff;
   transform: translateY(1px);
 }
+
+.register-now {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: #1e90ff;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+.register-now:hover {
+  text-decoration: underline;
+}
