@@ -1,8 +1,8 @@
-// backend/routes/auth.js
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { sendPasswordResetEmail } = require('../utils/email');
 
 const router = express.Router();
 
@@ -66,8 +66,65 @@ const login = async (req, res) => {
   }
 };
 
+// Forgot Password controller
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    // Check if the user exists
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: 'User not found' });
+    }
+
+    // Generate a reset token
+    const resetToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+    // Send the reset email
+    await sendPasswordResetEmail(email, resetToken);
+
+    res.status(200).json({ message: 'Password reset email sent' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error sending email' });
+  }
+};
+
+// Reset Password controller
+const resetPassword = async (req, res) => {
+  const { token, newPassword } = req.body;
+
+  if (!newPassword) {
+    return res.status(400).json({ error: 'New password is required' });
+  }
+
+  try {
+    // Verify the reset token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const userId = decoded.userId;
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update the password in the database
+    await User.findByIdAndUpdate(userId, { password: hashedPassword });
+
+    res.status(200).json({ message: 'Password successfully reset' });
+  } catch (error) {
+    console.error(error);
+
+    if (error.name === 'TokenExpiredError') {
+      return res.status(400).json({ error: 'Reset token expired' });
+    }
+
+    res.status(400).json({ error: 'Invalid or expired token' });
+  }
+};
+
 // Export routes
 router.post('/login', login);
 router.post('/signup', signup);
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password', resetPassword);
 
 module.exports = router;
