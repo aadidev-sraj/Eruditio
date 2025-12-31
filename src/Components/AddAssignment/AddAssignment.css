@@ -1,0 +1,72 @@
+.add-assignment-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-assignment-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-assignment-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-assignment-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.add-assignment-container .question {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+.add-assignment-container .question h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.add-assignment-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.add-assignment-container .add-question-btn,
+.add-assignment-container .submit-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.add-assignment-container .remove-question-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.add-assignment-container button:hover {
+  opacity: 0.9;
+}
+
+.error {
+  color: #f44336;
+  margin-bottom: 10px;
+}
+

@@ -1,0 +1,215 @@
+.assignments-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.assignments-content {
+  flex-grow: 1;
+  padding: 60px 20px 20px;
+  transition: margin-left 0.3s ease;
+  background-color: var(--background-color);
+}
+
+.assignments-content.sidebar-collapsed {
+  margin-left: 70px;
+}
+
+.assignments-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.due-today {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.enrolled-courses h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+}
+
+.course-list li {
+  margin-bottom: 10px;
+}
+
+.course-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.course-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.due-time {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.profile-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: var(--primary-color);
+  background-color: white;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f5f5f5;
+}
+
+.assignments-count {
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.assignments-list {
+  display: grid;
+  gap: 15px;
+}
+
+.assignment-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.assignment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.assignment-card h3 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+.assignment-info {
+  color: var(--text-light);
+  margin: 10px 0;
+}
+
+.take-assignment-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.take-assignment-btn:hover {
+  opacity: 0.9;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .assignments-content {
+    padding: 50px 15px 15px;
+  }
+
+  .assignments-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .assignments-content {
+    margin-left: 0;
+    padding: 40px 12px 12px;
+  }
+
+  .assignments-title {
+    font-size: 1.5rem;
+  }
+
+  .enrolled-courses h2 {
+    font-size: 1.25rem;
+  }
+
+  .course-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 15px;
+  }
+
+  .due-time {
+    font-size: 0.85rem;
+  }
+
+  .profile-icon {
+    top: 10px;
+    right: 10px;
+    padding: 6px;
+  }
+
+  .assignment-card {
+    padding: 15px;
+  }
+
+  .take-assignment-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .assignments-title {
+    font-size: 1.25rem;
+  }
+
+  .due-today {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .assignment-card h3 {
+    font-size: 1.1rem;
+  }
+}
