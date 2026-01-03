@@ -87,7 +87,7 @@ const AddCourse = () => {
       console.log(`Uploading ${type}:`, file.name)
       toast.info(`Uploading ${type}...`)
 
-      const response = await fetch(`${AP I_ENDPOINTS.UPLOAD}/${type}`, {
+      const response = await fetch(`${API_ENDPOINTS.UPLOAD}/${type}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
