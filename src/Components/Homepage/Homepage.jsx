@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { Search, ChevronLeft, ChevronRight } from "lucide-react"
 import "./Homepage.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const HomePage = () => {
   const navigate = useNavigate()
@@ -55,7 +57,7 @@ const HomePage = () => {
   const fetchCourses = async (query = "educational courses computer networks c++ accounting psychology") => {
     try {
       console.log(`Fetching courses with query: ${query}`)
-      const response = await fetch(`http://localhost:5006/api/youtube/search?q=${query}`)
+      const response = await fetch(`${API_BASE_URL}/api/youtube/search?q=${query}`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)

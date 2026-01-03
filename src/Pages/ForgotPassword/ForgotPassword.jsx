@@ -1,6 +1,8 @@
 // src/Components/ForgotPassword/ForgotPassword.js
 import React, { useState } from 'react';
 import './ForgotPassword.css';  // Import the CSS
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -15,7 +17,7 @@ const ForgotPassword = () => {
 
     try {
       // API request to send the forgot password email
-      const response = await fetch('http://localhost:5006/api/auth/forgot-password', {
+      const response = await fetch(API_ENDPOINTS.AUTH_FORGOT_PASSWORD, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

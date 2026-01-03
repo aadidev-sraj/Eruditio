@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom"
 import Sidebar from "../../Components/Sidebar/Sidebar"
 import { User, Mail, BookOpen, Award, Calendar, Clock } from "lucide-react"
 import "./Profile.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const Profile = () => {
   const [user, setUser] = useState(null)
@@ -25,7 +27,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5006/api/profile", {
+        const response = await fetch(API_ENDPOINTS.PROFILE, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

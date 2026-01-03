@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import AssignmentTimer from "../AssignmentTimer/AssignmentTimer"
 import "./TakeAssignment.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const TakeAssignment = () => {
   const { assignmentId } = useParams()
@@ -25,7 +27,7 @@ const TakeAssignment = () => {
         }
 
         setLoading(true)
-        const response = await fetch(`http://localhost:5006/api/assignments/${assignmentId}`, {
+        const response = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/${assignmentId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -58,7 +60,7 @@ const TakeAssignment = () => {
       const token = localStorage.getItem("token")
       if (!token) return
 
-      const response = await fetch(`http://localhost:5006/api/assignments/${assignmentId}/start`, {
+      const response = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/${assignmentId}/start`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -94,7 +96,7 @@ const TakeAssignment = () => {
         throw new Error("Authentication required")
       }
 
-      const response = await fetch(`http://localhost:5006/api/assignments/${assignmentId}/submit`, {
+      const response = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/${assignmentId}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

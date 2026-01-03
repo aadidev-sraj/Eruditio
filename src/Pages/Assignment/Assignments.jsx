@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import Sidebar from "../../Components/Sidebar/Sidebar"
 import { User, Calendar } from "lucide-react"
 import "./Assignments.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const Assignments = () => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true)
@@ -21,7 +23,7 @@ const Assignments = () => {
         throw new Error("No authentication token found")
       }
 
-      const response = await fetch("http://localhost:5006/api/enrollments", {
+      const response = await fetch(API_ENDPOINTS.ENROLLMENTS, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

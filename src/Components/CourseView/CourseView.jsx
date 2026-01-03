@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import AddAssignment from "../AddAssignment/AddAssignment"
 import "./CourseView.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const CourseView = () => {
   const { courseId } = useParams()
@@ -50,7 +52,7 @@ const CourseView = () => {
         // Try to fetch from YouTube API first
         try {
           console.log("Fetching from YouTube API")
-          const youtubeResponse = await fetch(`http://localhost:5006/api/youtube/video/${courseId}`)
+          const youtubeResponse = await fetch(`${API_BASE_URL}/api/youtube/video/${courseId}`)
 
           if (!youtubeResponse.ok) {
             console.error("YouTube API error:", youtubeResponse.status)
@@ -84,7 +86,7 @@ const CourseView = () => {
       // Try to fetch from the database (for instructor-created courses)
       try {
         console.log("Fetching from database")
-        const response = await fetch(`http://localhost:5006/api/courses/${courseId}`, {
+        const response = await fetch(`${API_ENDPOINTS.COURSES}/${courseId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -126,7 +128,7 @@ const CourseView = () => {
         if (!token) {
           throw new Error("No authentication token found")
         }
-        const response = await fetch(`http://localhost:5006/api/assignments/course/${courseId}`, {
+        const response = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/course/${courseId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -155,7 +157,7 @@ const CourseView = () => {
 
         console.log("Checking enrollment status for course:", courseId)
 
-        const response = await fetch(`http://localhost:5006/api/enrollments/check/${courseId}`, {
+        const response = await fetch(`${API_ENDPOINTS.ENROLLMENTS}/check/${courseId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

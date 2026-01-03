@@ -5,6 +5,8 @@ import { useParams, useNavigate } from "react-router-dom"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "./AddAssignment.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const AddAssignment = () => {
   const { courseId } = useParams()
@@ -33,7 +35,7 @@ const AddAssignment = () => {
       }
 
       console.log("Checking course existence for ID:", courseId)
-      const response = await fetch(`http://localhost:5006/api/courses/${courseId}`, {
+      const response = await fetch(`${API_ENDPOINTS.COURSES}/${courseId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,7 +81,7 @@ const AddAssignment = () => {
       const assignmentData = { courseId, title, questions }
       console.log("Sending assignment data:", assignmentData)
 
-      const response = await fetch("http://localhost:5006/api/assignments", {
+      const response = await fetch(API_ENDPOINTS.ASSIGNMENTS, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

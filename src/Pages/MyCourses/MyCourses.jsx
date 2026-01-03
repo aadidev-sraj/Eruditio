@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom"
 import Sidebar from "../../Components/Sidebar/Sidebar"
 import { User, FileText, Trash2 } from "lucide-react"
 import "./MyCourses.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const MyCourses = () => {
   const [courses, setCourses] = useState([])
@@ -24,7 +26,7 @@ const MyCourses = () => {
         throw new Error("No authentication token found")
       }
 
-      const response = await fetch("http://localhost:5006/api/courses/instructor", {
+      const response = await fetch(API_ENDPOINTS.COURSES_INSTRUCTOR, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -53,7 +55,7 @@ const MyCourses = () => {
     if (window.confirm("Are you sure you want to delete this course?")) {
       try {
         const token = localStorage.getItem("token")
-        const response = await fetch(`http://localhost:5006/api/courses/${courseId}`, {
+        const response = await fetch(`${API_ENDPOINTS.COURSES}/${courseId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -82,7 +84,7 @@ const MyCourses = () => {
 
     // If it starts with /uploads, prepend backend URL
     if (course.thumbnailUrl.startsWith("/uploads")) {
-      return `http://localhost:5006${course.thumbnailUrl}`
+      return `${API_BASE_URL}${course.thumbnailUrl}`
     }
 
     // Otherwise, use as is

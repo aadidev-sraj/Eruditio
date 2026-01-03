@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import "./Assignment.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const Assignment = () => {
   const { courseId } = useParams()
@@ -21,7 +23,7 @@ const Assignment = () => {
     try {
       setLoading(true)
       setError(null)
-      const response = await fetch(`http://localhost:5006/api/assignments/generate/${courseId}`)
+      const response = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/generate/${courseId}`)
       if (!response.ok) {
         throw new Error("Failed to fetch questions")
       }
@@ -43,7 +45,7 @@ const Assignment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(`http://localhost:5006/api/assignments/submit/${courseId}`, {
+      const response = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/submit/${courseId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

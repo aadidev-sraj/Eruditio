@@ -7,6 +7,8 @@ import { User, Upload } from "lucide-react"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "./AddCourse.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const AddCourse = () => {
   const [courseData, setCourseData] = useState({
@@ -85,7 +87,7 @@ const AddCourse = () => {
       console.log(`Uploading ${type}:`, file.name)
       toast.info(`Uploading ${type}...`)
 
-      const response = await fetch(`http://localhost:5006/api/upload/${type}`, {
+      const response = await fetch(`${AP I_ENDPOINTS.UPLOAD}/${type}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -165,7 +167,7 @@ const AddCourse = () => {
       console.log("Submitting course data:", courseDataToSubmit)
       toast.info("Creating course...")
 
-      const response = await fetch("http://localhost:5006/api/courses", {
+      const response = await fetch(API_ENDPOINTS.COURSES, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

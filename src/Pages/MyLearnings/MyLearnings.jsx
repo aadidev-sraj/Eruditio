@@ -7,6 +7,8 @@ import { Search, Trash2, User } from 'lucide-react'
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "./MyLearnings.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const MyLearnings = () => {
   const [continueWatching, setContinueWatching] = useState([])
@@ -28,7 +30,7 @@ const MyLearnings = () => {
         return
       }
 
-      const response = await fetch("http://localhost:5006/api/enrollments", {
+      const response = await fetch(API_ENDPOINTS.ENROLLMENTS, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -61,7 +63,7 @@ const MyLearnings = () => {
   const handleUnenroll = async (courseId) => {
     try {
       const token = localStorage.getItem("token")
-      const response = await fetch(`http://localhost:5006/api/enrollments/${courseId}`, {
+      const response = await fetch(`${API_ENDPOINTS.ENROLLMENTS}/${courseId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { API_ENDPOINTS } from "../../config/api"
 import "./SignUp.css"
 
 const Signup = () => {
@@ -26,7 +27,7 @@ const Signup = () => {
     e.preventDefault()
 
     try {
-      const response = await axios.post("http://localhost:5006/api/auth/signup", formData)
+      const response = await axios.post(API_ENDPOINTS.AUTH_SIGNUP, formData)
       localStorage.setItem("token", response.data.token)
       localStorage.setItem("user", JSON.stringify(response.data.user))
       navigate("/dashboard") // Redirect to dashboard after successful signup

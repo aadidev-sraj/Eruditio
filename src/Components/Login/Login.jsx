@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
+import { API_ENDPOINTS } from "../../config/api"
 import "./Login.css"
 
 const Login = () => {
@@ -26,7 +27,7 @@ const Login = () => {
       const requestBody = JSON.stringify({ email, password })
       console.log("Sending login request with:", requestBody)
 
-      const response = await fetch("http://localhost:5006/api/auth/login", {
+      const response = await fetch(API_ENDPOINTS.AUTH_LOGIN, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

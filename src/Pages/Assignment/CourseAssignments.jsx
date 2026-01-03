@@ -3,6 +3,8 @@ import { useParams, Link, useNavigate } from "react-router-dom"
 import Sidebar from "../../Components/Sidebar/Sidebar"
 import { ArrowLeft } from "lucide-react"
 import "./Assignments.css"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 const CourseAssignments = () => {
     const { courseId } = useParams()
@@ -25,7 +27,7 @@ const CourseAssignments = () => {
             }
 
             // Fetch course details
-            const courseResponse = await fetch(`http://localhost:5006/api/courses/${courseId}`, {
+            const courseResponse = await fetch(`${API_ENDPOINTS.COURSES}/${courseId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -37,7 +39,7 @@ const CourseAssignments = () => {
             }
 
             // Fetch assignments
-            const assignmentsResponse = await fetch(`http://localhost:5006/api/assignments/course/${courseId}`, {
+            const assignmentsResponse = await fetch(`${API_ENDPOINTS.ASSIGNMENTS}/course/${courseId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

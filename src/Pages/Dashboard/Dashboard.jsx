@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom"
 import Sidebar from "../../Components/Sidebar/Sidebar"
 import "./Dashboard.css"
 import { User, Search } from "lucide-react"
+import { API_ENDPOINTS, API_BASE_URL, getApiUrl } from "../../config/api"
+
 
 export const Dashboard = () => {
   const [username, setUsername] = useState("")
@@ -28,7 +30,7 @@ export const Dashboard = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5006/api/profile", {
+        const response = await fetch(API_ENDPOINTS.PROFILE, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -71,7 +73,7 @@ export const Dashboard = () => {
       }
       console.log("Request headers:", headers)
 
-      const response = await fetch(`http://localhost:5006/api/courses/search?q=${encodeURIComponent(searchQuery)}`, {
+      const response = await fetch(`${API_ENDPOINTS.COURSES}/search?q=${encodeURIComponent(searchQuery)}`, {
         headers: headers,
       })
 
